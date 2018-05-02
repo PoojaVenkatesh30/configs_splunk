@@ -1,0 +1,2 @@
+#remote syslog server {{ syslog_server_ip }} on port {{ syslog_server_port }}
+action(type="omfwd" Target="{{ syslog_server_ip }}" Device="mgmt" Port="{{ syslog_server_port }}" Protocol="udp")

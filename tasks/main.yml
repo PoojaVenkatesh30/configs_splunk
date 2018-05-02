@@ -1,0 +1,20 @@
+---
+# tasks file for config_syslog
+- name: copy template 11-remotesyslog.conf.j2 to /etc/rsyslog.d/11-remotesyslog.conf
+  template: src=11-remotesyslog.conf.j2 dest=/etc/rsyslog.d/11-remotesyslog.conf
+  notify:
+    - restart rsyslog
+
+#task file for config_clagd
+- name: copy template 20-clagd.conf.j2 to /etc/rsyslog.d/20-clagd.conf
+  template: src=20-clagd.conf.j2   dest=/etc/rsyslog.d/20-clagd.conf
+  notify:
+    - restart rsyslog
+
+#task file for config_frr
+- name: copy template 45-frr.conf.j2 to /etc/rsyslog.d/45-frr.conf
+  template:
+    src: 45-frr.conf.j2
+    dest: /etc/rsyslog.d/45-frr.conf
+  notify:
+    - restart rsyslog

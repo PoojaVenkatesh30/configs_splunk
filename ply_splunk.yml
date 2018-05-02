@@ -1,0 +1,10 @@
+#This is a playbook to push the cumulus logs to the splunk.
+
+---
+- hosts: localhost
+  var:
+    forwarder_ip: 10.113.22.156
+    forwarder_port: 514
+
+  roles:
+    - splunk_push
